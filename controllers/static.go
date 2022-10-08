@@ -22,7 +22,7 @@ func FAQ(tpl views.Template) http.HandlerFunc {
 		},
 		{
 			Question: "How do I contact support?",
-			Answer:   `Email us - <a href="mailto:support@lenslocked.com">support@lenslocked.com</a>`,
+			Answer:   `Email us - <a class="underline" href="mailto:support@lenslocked.com">support@lenslocked.com</a>`,
 		},
 		{
 			Question: "Where is your office located?",
