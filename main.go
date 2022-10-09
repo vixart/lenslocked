@@ -22,6 +22,9 @@ func main() {
 	r.Get("/faq", controllers.FAQ(
 		views.Must(views.ParseFS(templates.FS, "tailwind.html", "faq.html"))))
 
+	r.Get("/signup", controllers.FAQ(
+		views.Must(views.ParseFS(templates.FS, "tailwind.html", "signup.html"))))
+
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Page not found", http.StatusNotFound)
 	})
