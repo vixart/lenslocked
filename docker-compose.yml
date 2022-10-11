@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  # Postgres database
+  db: # The service will be named db.
+    image: postgres # Postgres image will be used.
+    restart: always # Always try to restart if this stops running.
+    environment: # Provide environment variables.
+      POSTGRES_USER: baloo
+      POSTGRES_PASSWORD: junglebook
+      POSTGRES_DB: lenslocked
+    ports: # Expose ports so that apps not running via docker compose can connect to them.
+      - 5432:5432 # port on our machine:port on container
+
+  # Adminer provides a web UI to connect to databases.
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DESIGN: dracula # Theme - https://github.com/vrana/adminer/tree/master/designs
+    ports:
+      - 3333:8080
