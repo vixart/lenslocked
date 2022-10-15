@@ -18,6 +18,30 @@ type UserService struct {
 	DB *sql.DB
 }
 
+func (us *UserService) Authenticate(email, password string) (*User, error) {
+	email = strings.ToLower(email)
+	user := User{
+		Email: email,
+	}
+
+	// Validate email
+	row := us.DB.QueryRow(`
+		SELECT id, password_hash FROM users WHERE email=$1
+	`, email)
+	err := row.Scan(&user.ID, &user.PasswordHash)
+	if err != nil {
+		return nil, fmt.Errorf("authenticate: %w", err)
+	}
+
+	// Validate password
+	err = bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password))
+	if err != nil {
+		return nil, fmt.Errorf("authenticate: %w", err)
+	}
+
+	return &user, nil
+}
+
 func (us *UserService) Create(email, password string) (*User, error) {
 	email = strings.ToLower(email)
 	hashedBytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
