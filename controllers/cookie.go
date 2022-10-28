@@ -9,6 +9,12 @@ const (
 	CookieSession = "session"
 )
 
+func deleteCookie(w http.ResponseWriter, name string) {
+	cookie := newCookie(name, "")
+	cookie.MaxAge = -1
+	http.SetCookie(w, cookie)
+}
+
 func newCookie(name, value string) *http.Cookie {
 	cookie := http.Cookie{
 		Name:     name,
