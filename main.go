@@ -17,17 +17,17 @@ func main() {
 
 	r.Get("/", controllers.StaticHandler(views.Must(views.ParseFS(
 		templates.FS,
-		"tailwind.html", "home.html",
+		"tailwind.gohtml", "home.gohtml",
 	))))
 
 	r.Get("/contact", controllers.StaticHandler(views.Must(views.ParseFS(
 		templates.FS,
-		"tailwind.html", "contact.html",
+		"tailwind.gohtml", "contact.gohtml",
 	))))
 
 	r.Get("/faq", controllers.FAQ(views.Must(views.ParseFS(
 		templates.FS,
-		"tailwind.html", "faq.html",
+		"tailwind.gohtml", "faq.gohtml",
 	))))
 
 	// Setup a database connection
@@ -53,11 +53,11 @@ func main() {
 	}
 	userCtrl.Templates.New = views.Must(views.ParseFS(
 		templates.FS,
-		"tailwind.html", "signup.html",
+		"tailwind.gohtml", "signup.gohtml",
 	))
 	userCtrl.Templates.SignIn = views.Must(views.ParseFS(
 		templates.FS,
-		"tailwind.html", "signin.html",
+		"tailwind.gohtml", "signin.gohtml",
 	))
 	r.Get("/signup", userCtrl.New)
 	r.Post("/user", userCtrl.Create)
