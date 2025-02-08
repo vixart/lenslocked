@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/sixsat/lenslocked/models"
+	"github.com/vixart/lenslocked/models"
 )
 
 type User struct {

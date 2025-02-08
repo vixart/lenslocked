@@ -6,10 +6,10 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/gorilla/csrf"
-	"github.com/sixsat/lenslocked/controllers"
-	"github.com/sixsat/lenslocked/models"
-	"github.com/sixsat/lenslocked/templates"
-	"github.com/sixsat/lenslocked/views"
+	"github.com/vixart/lenslocked/controllers"
+	"github.com/vixart/lenslocked/models"
+	"github.com/vixart/lenslocked/templates"
+	"github.com/vixart/lenslocked/views"
 )
 
 func main() {

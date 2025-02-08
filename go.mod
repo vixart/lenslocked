@@ -1,4 +1,4 @@
-module github.com/sixsat/lenslocked
+module github.com/vixart/lenslocked
 
 go 1.19
 

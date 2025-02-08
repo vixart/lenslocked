@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/sixsat/lenslocked/rand"
+	"github.com/vixart/lenslocked/rand"
 )
 
 const (
